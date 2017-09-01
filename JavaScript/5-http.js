@@ -8,7 +8,7 @@ const rs = fs.createReadStream('index.html');
 const gs = zlib.createGzip();
 
 const buffers = [];
-let buffer;
+let buffer = null;
 
 gs.on('data', (buffer) => {
   buffers.push(buffer);

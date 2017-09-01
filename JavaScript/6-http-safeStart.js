@@ -5,7 +5,7 @@ const zlib = require('zlib');
 const http = require('http');
 
 function prepareCash(callback) {
-  let buffer;
+  let buffer = null;
 
   const rs = fs.createReadStream('index.html');
   const gs = zlib.createGzip();
