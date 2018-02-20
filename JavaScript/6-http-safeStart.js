@@ -31,7 +31,7 @@ function startServer(err, buffer) {
     response.end(buffer);
   });
 
-  server.listen(8080);
+  server.listen(8000);
 }
 
 prepareCash(startServer);
