@@ -2,15 +2,12 @@
 
 const fs = require('fs');
 
-const rs = fs.createReadStream('1-readable.js');
-const ws = fs.createWriteStream('copy.js');
+const rs = fs.createReadStream('1-readable.js', 'utf8');
+const ws = fs.createWriteStream('copy.js', 'utf8');
 
-rs.on('readable', () => {
-  const buffer = rs.read();
-  if (buffer) {
-    console.log('Copy ' + buffer.length + ' bytes');
-    ws.write(buffer);
-  }
+rs.on('data', (buffer) => {
+  console.log('Copy ' + buffer.length + ' chars');
+  ws.write(buffer);
 });
 
 rs.on('end', () => {

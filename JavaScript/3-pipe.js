@@ -2,8 +2,8 @@
 
 const fs = require('fs');
 
-const rs = fs.createReadStream('1-readable.js');
-const ws = fs.createWriteStream('copy.js');
+const rs = fs.createReadStream('1-readable.js', 'utf8');
+const ws = fs.createWriteStream('copy.js', 'utf8');
 
 rs.pipe(ws);
 

@@ -4,7 +4,7 @@ const fs = require('fs');
 const zlib = require('zlib');
 const http = require('http');
 
-function prepareCash(callback) {
+function prepareCache(callback) {
   let buffer = null;
 
   const rs = fs.createReadStream('index.html');
@@ -16,15 +16,27 @@ function prepareCash(callback) {
     buffers.push(buffer);
   });
 
-  gs.on('end', () => {
+  gs.once('end', () => {
     buffer = Buffer.concat(buffers);
     callback(null, buffer);
+  });
+
+  rs.on('error', (error) => {
+    callback(error);
+  });
+
+  gs.on('error', (error) => {
+    callback(error);
   });
 
   rs.pipe(gs);
 }
 
 function startServer(err, buffer) {
+  if (err) {
+    throw err;
+  }
+
   const server = http.createServer((request, response) => {
     console.log(request.url);
     response.writeHead(200, { 'Content-Encoding': 'gzip' });
@@ -34,4 +46,4 @@ function startServer(err, buffer) {
   server.listen(8000);
 }
 
-prepareCash(startServer);
+prepareCache(startServer);
