@@ -13,7 +13,7 @@ rs.on('readable', () => {
   }
 });
 
-rs.on('data', (chunk) => {
+rs.on('data', chunk => {
   console.log('data');
   console.log(chunk);
 });

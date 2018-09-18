@@ -4,7 +4,7 @@ const fs = require('fs');
 const zlib = require('zlib');
 const http = require('http');
 
-function prepareCache(callback) {
+const prepareCache = callback => {
   let buffer = null;
 
   const rs = fs.createReadStream('index.html');
@@ -12,7 +12,7 @@ function prepareCache(callback) {
 
   const buffers = [];
 
-  gs.on('data', (buffer) => {
+  gs.on('data', buffer => {
     buffers.push(buffer);
   });
 
@@ -21,18 +21,18 @@ function prepareCache(callback) {
     callback(null, buffer);
   });
 
-  rs.on('error', (error) => {
+  rs.on('error', error => {
     callback(error);
   });
 
-  gs.on('error', (error) => {
+  gs.on('error', error => {
     callback(error);
   });
 
   rs.pipe(gs);
-}
+};
 
-function startServer(err, buffer) {
+const startServer = (err, buffer) => {
   if (err) {
     throw err;
   }
@@ -44,6 +44,6 @@ function startServer(err, buffer) {
   });
 
   server.listen(8000);
-}
+};
 
 prepareCache(startServer);
