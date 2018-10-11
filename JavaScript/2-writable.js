@@ -6,7 +6,7 @@ const rs = fs.createReadStream('1-readable.js', 'utf8');
 const ws = fs.createWriteStream('copy.js', 'utf8');
 
 rs.on('data', buffer => {
-  console.log('Copy ' + buffer.length + ' chars');
+  console.log(`Copy ${buffer.length} chars`);
   ws.write(buffer);
 });
 
