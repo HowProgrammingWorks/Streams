@@ -4,14 +4,14 @@ const fs = require('fs');
 const zlib = require('zlib');
 const http = require('http');
 
-const once = fn => (...args) => {
+const once = (fn) => (...args) => {
   if (!fn) return;
   const res = fn(...args);
   fn = null;
   return res;
 };
 
-const prepareCache = callback => {
+const prepareCache = (callback) => {
   callback = once(callback);
   let buffer = null;
 
@@ -20,7 +20,7 @@ const prepareCache = callback => {
 
   const buffers = [];
 
-  gs.on('data', buffer => {
+  gs.on('data', (buffer) => {
     buffers.push(buffer);
   });
 

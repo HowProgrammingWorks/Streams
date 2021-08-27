@@ -10,7 +10,7 @@ const gs = zlib.createGzip();
 const buffers = [];
 let buffer = null;
 
-gs.on('data', buffer => {
+gs.on('data', (buffer) => {
   buffers.push(buffer);
 });
 
