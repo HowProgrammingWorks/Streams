@@ -1,7 +1,7 @@
 'use strict';
 
-const fs = require('fs');
-const zlib = require('zlib');
+const fs = require('node:fs');
+const zlib = require('node:zlib');
 
 const rs = fs.createReadStream('1-readable.js');
 const ws = fs.createWriteStream('1-readable.js.gz');

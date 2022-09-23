@@ -1,8 +1,8 @@
 'use strict';
 
-const fs = require('fs');
-const zlib = require('zlib');
-const http = require('http');
+const fs = require('node:fs');
+const zlib = require('node:zlib');
+const http = require('node:http');
 
 const rs = fs.createReadStream('index.html');
 const gs = zlib.createGzip();
