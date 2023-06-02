@@ -13,7 +13,6 @@ const once = (fn) => (...args) => {
 
 const prepareCache = (callback) => {
   callback = once(callback);
-  let buffer = null;
 
   const rs = fs.createReadStream('index.html');
   const gs = zlib.createGzip();
@@ -24,8 +23,8 @@ const prepareCache = (callback) => {
     buffers.push(buffer);
   });
 
-  gs.once('end', () => {
-    buffer = Buffer.concat(buffers);
+  gs.on('end', () => {
+    const buffer = Buffer.concat(buffers);
     callback(null, buffer);
   });
 
