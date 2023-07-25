@@ -49,18 +49,3 @@ readable.on('readable', () => {
     data = readable.read();
   }
 });
-
-// Style: on('readable')
-// Style: .pipe()
-// Style: AsyncIterable
-// see next examples
-
-/*
-const main = async () => {
-  for await (const chunk of readable) {
-    console.log({ forAwait: chunk });
-  }
-};
-
-main();
-*/
