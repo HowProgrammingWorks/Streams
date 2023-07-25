@@ -4,21 +4,21 @@ const fs = require('node:fs');
 const zlib = require('node:zlib');
 const http = require('node:http');
 
-const rs = fs.createReadStream('index.html');
-const gs = zlib.createGzip();
+const readable = fs.createReadStream('index.html');
+const gzip = zlib.createGzip();
 
 const buffers = [];
 let buffer = null;
 
-gs.on('data', (buffer) => {
+gzip.on('data', (buffer) => {
   buffers.push(buffer);
 });
 
-gs.on('end', () => {
+gzip.on('end', () => {
   buffer = Buffer.concat(buffers);
 });
 
-rs.pipe(gs);
+readable.pipe(gzip);
 
 const server = http.createServer((request, response) => {
   console.log(request.url);
