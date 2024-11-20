@@ -4,10 +4,10 @@ const stream = require('node:stream');
 
 const purchase = {
   Electronics: [
-    { name: 'Laptop',  price: -1500 },
-    { name: 'Mouse',  price: 25 },
-    { name: 'Keyboard',  price: 100 },
-    { name: 'HDMI cable',  price: 10 },
+    { name: 'Laptop', price: -1500 },
+    { name: 'Mouse', price: 25 },
+    { name: 'Keyboard', price: 100 },
+    { name: 'HDMI cable', price: 10 },
   ],
   Textile: [
     { name: 'Bag', price: 50 },

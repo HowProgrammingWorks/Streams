@@ -1,9 +1,9 @@
 'use strict';
 
 const fs = require('node:fs');
-const stream  = require('node:stream');
+const stream = require('node:stream');
 
-async function * dup(char, size) {
+async function* dup(char, size) {
   let counter = 0;
   while (counter++ < size) {
     // throw new Error('Error generating data');

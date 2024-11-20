@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('node:fs');
-const stream  = require('node:stream');
+const stream = require('node:stream');
 
 const readable = fs.createReadStream('data.tmp');
 const writable = new stream.Writable({
@@ -9,7 +9,7 @@ const writable = new stream.Writable({
     console.log({ size: chunk.length, encoding, next });
     //next(new Error('Error flushing data'));
     next();
-  }
+  },
 });
 
 readable.pipe(writable);

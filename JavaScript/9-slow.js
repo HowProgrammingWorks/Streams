@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('node:fs');
-const stream  = require('node:stream');
+const stream = require('node:stream');
 const timers = require('node:timers/promises');
 
 const createSlowStream = (delay) => {
@@ -12,7 +12,7 @@ const createSlowStream = (delay) => {
         await timers.setTimeout(delay);
       }
       next();
-    }
+    },
   };
   return new stream.Transform(options);
 };

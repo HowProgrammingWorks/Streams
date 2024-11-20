@@ -1,6 +1,6 @@
 'use strict';
 
-const stream  = require('node:stream');
+const stream = require('node:stream');
 
 const ENTER = 13;
 
@@ -15,7 +15,7 @@ const createBufferedStream = () => {
       const result = Buffer.concat(buffers);
       this.emit('result', result);
       done();
-    }
+    },
   });
   return writable;
 };

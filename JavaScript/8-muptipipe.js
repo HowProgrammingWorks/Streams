@@ -1,7 +1,7 @@
 'use strict';
 
 const fs = require('node:fs');
-const stream  = require('node:stream');
+const stream = require('node:stream');
 
 const text = 'Hello World!\n';
 const options = { encoding: 'utf8' };

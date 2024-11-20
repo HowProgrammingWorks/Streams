@@ -1,6 +1,6 @@
 'use strict';
 
-const stream  = require('node:stream');
+const stream = require('node:stream');
 
 const readable = new stream.Readable();
 
