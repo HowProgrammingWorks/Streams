@@ -5,7 +5,7 @@ const main = async () => {
   const response = await fetch(url);
   const { headers, body } = response;
   const reader = body.getReader();
-  console.log(response.constructor.name); // Headers
+  console.log(response.constructor.name); // Responce
   console.log(headers.constructor.name); // Headers
   console.log(body.constructor.name); // ReadableStream
   console.log(reader.constructor.name); // ReadableStreamDefaultReader
